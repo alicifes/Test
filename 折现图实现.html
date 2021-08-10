@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/echarts.min.js"></script>
+</head>
+<body>
+    <div style="width: 600px;height: 400px;"></div>
+    <script>
+        var mCharts = echarts.init(document.querySelector('div'))
+        var xArrData= ['1月','2月', '3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+        var yArrData=[3000,2000,1000,3000,2000,1000,3000,2000,1000,3000,2000,1000,]
+        var option={
+            xAxis:{
+                type:'category',
+                data:xArrData
+            },
+            yAxis:{
+                type:'value'
+            },
+            series:[
+                {
+                    name:'康师傅',
+                    data:yArrData,
+                    type:'line',
+                    markPoint:{ //标注出最大最小值
+                        data:[
+                            {
+                                type:'max'
+                            },
+                            {
+                                type:'min'
+                            }
+                        ]
+                    },
+                    markLine:{ //标出平均值
+                        data:[
+                            {
+                                type:'average'
+                            }
+                        ]
+                    },
+                    markArea:{
+                        data:[
+                            [
+                                {
+                                    xAxis:'1月'
+                                },
+                                {
+                                    xAxis:'2月'
+                                }
+                            ],
+                            [
+                                {
+                                    xAxis:'7月'
+                                },
+                                {
+                                    xAxis:'8月'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+        mCharts.setOption(option)
+    </script>
+</body>
+</html>

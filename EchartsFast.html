@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 放一个盒子 -->
+    <div style="width: 600px;height: 400px;"></div>
+    <script>
+        var mCharts = echarts.init(document.querySelector('div'))
+        var option = {
+            //标题,整个图表的目录
+            title:{
+                text:'成绩'//link,是超链接,有很多关于主界面标题的配置,查阅官方文档进行查找来使用
+            },
+            // x轴
+        xAxis:{
+            type:'category',//类目轴
+            data:['小红','小明','小王']
+            },
+            // y轴
+        yAxis:{
+                type:'value' //数值轴
+            },
+        series:[
+                {
+                    name:'语文',//名称
+                    type:'bar',//表示为柱状图,line,pie,通过type决定自己的图表类型
+                    data:[70,92,87]
+                }
+            ]
+        }
+        mCharts.setOption(option)
+    </script>
+</body>
+</html>
